@@ -1,7 +1,7 @@
+# THIS FORK IS NOT AFFILIATED WITH THE PARENT OPENCODE PROJECT, AVAILABLE AT https://github.com/anomalyco/opencode
+### This fork implements a timeout override for the streamText() function which prevents slower Providers from timing out during SSE Tool Calls.
+### To override the default timeout for SSE Calls (120s), add a value to experimental.tool_timeout in your opencode.json file. This option accepts an integer input as milliseconds. Set to false to disable timeout entirely (not recommended).
 <p align="center">
-  # THIS FORK IS NOT AFFILIATED WITH THE PARENT OPENCODE PROJECT, AVAILABLE AT https://github.com/anomalyco/opencode
-  ### This fork implements a timeout override for the streamText() function which prevents slower Providers from timing out during SSE Tool Calls.
-  ### To override the default timeout for SSE Calls (120s), add a value to experimental.tool_timeout in your opencode.json file. This option accepts an integer input as milliseconds. Set to false to disable timeout entirely (not recommended).
   <a href="https://opencode.ai">
     <picture>
       <source srcset="packages/console/app/src/asset/logo-ornate-dark.svg" media="(prefers-color-scheme: dark)">
