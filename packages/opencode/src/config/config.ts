@@ -286,6 +286,17 @@ export const Info = Schema.Struct({
       mcp_timeout: Schema.optional(PositiveInt).annotate({
         description: "Timeout in milliseconds for model context protocol (MCP) requests",
       }),
+      tool_timeout: Schema.optional(
+        Schema.Union([PositiveInt, Schema.Literal(false)]),
+      ).annotate({
+        description:
+          [
+            "Timeout in milliseconds for tool execution steps in streamText().",
+            "Prevents long-running tools from being abruptly terminated.",
+            "Set to false to disable (not recommended).",
+            "Default is 120000ms (2 minutes), matching the AI SDK default.",
+          ].join(" "),
+      }),
     }),
   ),
 }).annotate({ identifier: "Config" })

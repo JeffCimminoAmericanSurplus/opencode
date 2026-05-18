@@ -322,6 +322,11 @@ const live: Layer.Layer<
         ? (yield* InstanceState.context).project.id
         : undefined
 
+      // Determine the effective timeout for tool execution steps.
+      // If user has configured a custom timeout, use it; otherwise default to 120s (matches AI SDK default).
+      // Users can increase this value in their config for long-running operations.
+      const effectiveTimeout = cfg.experimental?.tool_timeout ?? 120_000
+
       return streamText({
         onError(error) {
           l.error("stream error", {
@@ -401,6 +406,7 @@ const live: Layer.Layer<
             sessionId: input.sessionID,
           },
         },
+        timeout: effectiveTimeout === false ? undefined : { stepMs: effectiveTimeout },
       })
     })
 
